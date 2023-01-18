@@ -22,6 +22,9 @@ inputs:
   severity: # string
     description: 'Set the severity of all checks to the value specified'
     required: false
+  alwaysDropInsteadOfReplace: # bool
+    description: 'If true, drop and recreate a view instead of replacing it.'
+    required: false
   alwaysOverrideStoredLogicSchema: # bool
     description: 'When generating SQL for createProcedure, should the procedure schema be forced to the default schema if no schemaName attribute is set?'
     required: false
@@ -203,6 +206,7 @@ runs:
     - ${{ inputs.enable }}
     - ${{ inputs.force }}
     - ${{ inputs.severity }}
+    - ${{ inputs.alwaysDropInsteadOfReplace }}
     - ${{ inputs.alwaysOverrideStoredLogicSchema }}
     - ${{ inputs.autoReorg }}
     - ${{ inputs.changelogLockPollRate }}
