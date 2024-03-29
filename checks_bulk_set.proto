@@ -12,8 +12,7 @@ service ChecksBulkSetService {
   rpc execute(Checks.BulkSetRequest) returns (Response) {}
 }
 
-/* [PRO]
-Set the properties of all qualifying checks with one command */
+/* [PRO] Set the properties of all qualifying checks with one command */
 message Checks {
   message BulkSetRequest {
     optional bool auto_enable_new_checks = 1; // Automatically enable new quality checks in liquibase.checks.conf file when they are available. Options: [true|false]
