@@ -6,7 +6,7 @@ Official GitHub Action to run Liquibase Checks Bulk Set in your GitHub Action Wo
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/checks-bulk-set@v4.27.0
+- uses: liquibase-github-actions/checks-bulk-set@v4.28.0
   with:
     # Automatically enable new quality checks in liquibase.checks.conf file when they are available. Options: [true|false]
     # bool
@@ -14,9 +14,14 @@ steps:
     autoEnableNewChecks: ""
 
     # Allows automatic backup and updating of liquibase.checks.conf file when new quality checks are available, or for file format changes. Options: [on|off]
-    # string
+    # bool
     # Optional
     autoUpdate: ""
+
+    # Filter bulk set by check short name, only update checks with names found in the provided list
+    # string
+    # Optional
+    checkName: ""
 
     # Relative or fully qualified path to a configuration file for checks execution
     # string
@@ -55,7 +60,7 @@ The liquibase checks bulk set action accepts all valid liquibase global options 
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/checks-bulk-set@v4.27.0
+  - uses: liquibase-github-actions/checks-bulk-set@v4.28.0
     with:
       headless: true
       licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}

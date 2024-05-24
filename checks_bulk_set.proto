@@ -16,13 +16,14 @@ service ChecksBulkSetService {
 message Checks {
   message BulkSetRequest {
     optional bool auto_enable_new_checks = 1; // Automatically enable new quality checks in liquibase.checks.conf file when they are available. Options: [true|false]
-    optional string auto_update = 2; // Allows automatic backup and updating of liquibase.checks.conf file when new quality checks are available, or for file format changes. Options: [on|off]
-    optional string checks_settings_file = 3; // Relative or fully qualified path to a configuration file for checks execution
-    optional bool disable = 4; // Disable all qualifying checks in the checks settings file
-    optional bool enable = 5; // Enable all qualifying checks in the checks settings file
-    optional bool force = 6; // Do not ask for confirmation when running this command
-    optional string severity = 7; // Set the severity of all checks to the value specified
-    liquibase.GlobalOptions global_options = 8;
+    optional bool auto_update = 2; // Allows automatic backup and updating of liquibase.checks.conf file when new quality checks are available, or for file format changes. Options: [on|off]
+    optional string check_name = 3; // Filter bulk set by check short name, only update checks with names found in the provided list
+    optional string checks_settings_file = 4; // Relative or fully qualified path to a configuration file for checks execution
+    optional bool disable = 5; // Disable all qualifying checks in the checks settings file
+    optional bool enable = 6; // Enable all qualifying checks in the checks settings file
+    optional bool force = 7; // Do not ask for confirmation when running this command
+    optional string severity = 8; // Set the severity of all checks to the value specified
+    liquibase.GlobalOptions global_options = 9;
   }
 }
 
